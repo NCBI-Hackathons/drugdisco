@@ -9,7 +9,7 @@ DrugDisco is for anyond interested in rational and structure-based drug discover
 Developing new pharmaceutical drugs is crazy expensive. A big part of the cost comes from blindly screening millions of candidate compounds [cite]. Ultimately, trying each one out in cell cultures or animals is too time consuming, too costly and ethically unsound.
 
 ## DrugDisco, the best fitting solution!
-DrugDisco makes trial-and-error drug discovery a thing of the past by using a rational and structure-based approach. It can screen millions of compounds in-silico to find the best fiting ligand for your target.
+DrugDisco makes trial-and-error drug discovery a thing of the past by using a rational and structure-based approach. It can screen millions of compounds _in silico_ to find the best fiting ligand for your target.
 
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/dock-example.png" alt="molecule with binding site" width="600">
 
