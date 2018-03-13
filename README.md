@@ -29,7 +29,7 @@ The **back-end/database component** constsits of:
 
 2. We then calculate the Tanimoto similarities among all of the downloaded compounds.
 
-3. Using the Tanimoto similarities, we cluster the compounds using [clustering method]. Compounds that are at least 95% similar are considered to be members of the same cluster.
+3. Using the Tanimoto similarities, we cluster the compounds using Taylor-Butina clustering [cite]. Compounds that are at least 95% similar are considered to be members of the same cluster.
 
 4. Lastly, we store the clusters and choose the centroids of each cluster as the initial candidates for binding to target molecules.
 
@@ -44,6 +44,9 @@ The **filtering component** progressively refines its search by using MedusaDock
 3. In the third round, MedusaDock runs for 1,000 iterations using the top 100 compounds from the previous step. The top 20 compounds are then selected for the fourth round.
 
 4. In the fourth round, all of the compounds in the clusters represented by the top 20 compounds identified in the previous step are run through steps 1, 2 and 3. The final top 20 compounds, their ZINC-ID and their final scores, ranked from best to worst, are returned to the user.
+
+Here is an overview of how the three major components come together using computer hardware:
+<img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/platform_overview.png" alt="Platform Flowchart" width="1200">
 
 ## How to use DrugDisco, a step-by-step tutorial
 This is where we add screenshots that show exactly, step-by-step, how to use DrugDisco.
