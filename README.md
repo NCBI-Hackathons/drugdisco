@@ -3,10 +3,10 @@
 # DrugDisco
 DrugDisco is a high throughput automated drug discovery tool. Specifically, it tests over 20 million small molecules that are commercially available and can be used a drugs to find that one that fits your target best!!!
 
-DrugDisco is for anyond interested in rational drug discovery. Why test compounds at random when DrugDisco will sort through them for you?
+DrugDisco is for anyond interested in rational and structure-based drug discovery. Why test compounds at random when DrugDisco will sort through them for you?
 
 ## The problem
-Developing new pharmaceutical drugs is crazy expensive. A big part of the cost comes from blindly screening millions of candidate compounds [cite]. 
+Developing new pharmaceutical drugs is crazy expensive. A big part of the cost comes from blindly screening millions of candidate compounds [cite]. With rational 
 
 ## DrugDisco, the best fitting solution!
 
@@ -27,7 +27,7 @@ The front-end consists of a user interface along with a series of steps that pro
 
 1. The user uploads a target molecule in PDF format and then DrugDisco renders a 3-D image of it in in the browser.
 
-2. The user then specifies the binding site in MOL2 format. This can be as simple as providing x, y and z coordinates for the center of the binding site, or the user can specify an entire ligand.
+2. The user then specifies the binding site in MOL2 format. This is as simple as providing x, y and z coordinates for the center of the binding site.
 
 3. Lastly the user enters their email address so that they can be notified when DrugDisco has idientified 20 candidate compounds.
 
