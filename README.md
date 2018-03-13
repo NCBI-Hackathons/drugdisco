@@ -11,6 +11,7 @@ Developing new pharmaceutical drugs is crazy expensive. A big part of the cost c
 ## DrugDisco, the best fitting solution!
 DrugDisco makes trial-and-error drug discovery a thing of the past by using a rational and structure-based approach. It can screen millions of compounds _in silico_ to find the best fiting ligand for your target.
 
+In the picture below, the big blue blob is a target molecule and the red dot marks the spot where we want to fit a ligand. DrugDisco will sort through 20 million ligands and find the one that's most snug.
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/dock-example.png" alt="molecule with binding site" width="600">
 
 
@@ -50,4 +51,10 @@ Here is an overview of how the three major components come together using comput
 
 ## How to use DrugDisco, a step-by-step tutorial
 This is where we add screenshots that show exactly, step-by-step, how to use DrugDisco.
+
+Step 1: Upload PDB file for target molecule
+Step 2: Upload MOL2 coordinates for the center of the binding site
+Step 3: Enter your email address
+Step 4: Press "GO!!!!"
+#BAM!!!!!
 
