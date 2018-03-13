@@ -9,7 +9,7 @@ DrugDisco is for anyond interested in rational and structure-based drug discover
 Developing new pharmaceutical drugs is crazy expensive. A big part of the cost comes from blindly screening millions of candidate compounds [cite]. Ultimately, trying each one out in cell cultures or animals is too time consuming, too costly and ethically unsound.
 
 ## DrugDisco, the best fitting solution!
-DrugDisco makes trial-and-error drug discovery a thing of the past by using a rational and structure-based approach. It can screen millions of compounds _in silico_ to find the best fiting ligand for your target.
+DrugDisco makes trial-and-error drug discovery a thing of the past by using a rational and structure-based approach. It can screen millions of compounds _in silico_ to find the best fiting ligand for your target. It does this by combining the commerical, drug-like compounds in the ZINC15 database with the powerful MedusaDock program that simiulates molecular binding by allowing each molecule to bend in a natural way.
 
 In the picture below, the big blue blob is a target molecule and the red dot marks the spot where we want to fit a ligand. DrugDisco will sort through 20 million ligands and find the one that's most snug.
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/dock-example.png" alt="molecule with binding site" width="600">
