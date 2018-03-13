@@ -32,7 +32,7 @@ The **back-end/database component** constsits of:
 
 3. Using the Tanimoto similarities, we cluster the compounds using Taylor-Butina clustering [cite]. Compounds that are at least 95% similar are considered to be members of the same cluster.
 
-4. Lastly, we store the clusters and choose the centroids of each cluster as the initial candidates for binding to target molecules.
+4. Lastly, we store the clusters in a file containing each ZINC-ID and the cluster number that that molecule is associated with. We then choose the centroids of each cluster as the initial candidates for binding to target molecules.
 
 The **user interface** allows users to upload a target molecule in PDB format, a binding site in MOL2 format providing the x, y and z coordinates for the center of the binding site and their email address so that they can be notified when DrugDisco has idientified 20 candidate compounds.
 
