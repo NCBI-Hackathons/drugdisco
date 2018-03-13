@@ -1,7 +1,7 @@
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/DrugDiscoLogo.png" alt="DrugDisco Logo" width="200">
 
 # DrugDisco
-High throughput automated drug discovery: A pipeline to that tests over 20 million small molecules to find that one that fits your target  best!!!
+DrugDisco is a high throughput automated drug discovery tool. Specifically, it tests over 20 million small molecules to find that one that fits your target best!!!
 
 ## The problem
 Developing new pharmaceutical drugs is crazy expensive. A big part of the cost comes from blindly screening millions of candidate compounds [cite]. 
@@ -23,7 +23,7 @@ The back-end constsits of:
 
 The front-end consists of a user interface along with a series of steps that progressively refine the search for the best fitting compound.
 
-1. The users provides a target molecule by entering a PDB ID. DrugDisco then downloads the 3-D structure of this molecule from PDB and renders it in the browser. If there is no 3-D structure for the molecule of iterest, it can be uploaded by the user.
+1. The user uploads a target molecule and its 3-D structure is rendered in the browser.
 
 2. The user then specifies the center of the binding site by clicking on the 3-D rendered molecule or by entering it by hand.
 
@@ -35,9 +35,6 @@ The front-end consists of a user interface along with a series of steps that pro
    3. In the third round, MedusaDock runs for 1,000 iterations using the top 100 compounds from the previous step. The top 20 compounds are then selected for the fourth round.
    4. In the fourth round, all of the compounds in the clusters represented by the top 20 compounds identified in the previous step are run through steps 1, 2 and 3. The final top 20 compounds, their ZINC-ID and their final scores, ranked from best to worst, are returned to the user.
 
-## Use case
-DrugDisco is useful in a number of contexts. For example, if you wanted to find a compound that was commercially avaiable and suitable to be used as a drug that targeted ERK2, then you would entier the PDB ID for EKR2, 3i5z. The user could then either select the center of the binding site by clicking on the 3-D rendered image, or by entering [location] directly.
-
-## How to use DrugDisco
+## How to use DrugDisco, a step-by-step tutorial
 This is where we add screenshots that show exactly, step-by-step, how to use DrugDisco.
 
