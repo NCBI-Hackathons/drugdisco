@@ -11,16 +11,19 @@ Developing new pharmaceutical drugs is crazy expensive. A big part of the cost c
 ## DrugDisco, the best fitting solution!
 DrugDisco makes trial-and-error drug discovery a thing of the past by using a rational and structure-based approach. It can screen millions of compounds in-silico to find the best fiting ligand for your target.
 
+<img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/dock-example.png" alt="molecule with binding site" width="600">
+
+
 ## How it works:
 DrugDisco consists of 3 main components:
 
-1. A "back-end" or "database" component that stores relavant information about the ligands and how similar they are to each other.
-2. A user-interface that lets you specify a target molecule 
-3. A "filtering" component that identifies the compound that best fits your target of choice.
+1. A **back-end** or **database component** that stores relavant information about the ligands and how similar they are to each other.
+2. A **user-interface** that lets you specify a target molecule 
+3. A **filtering component** that identifies the compound that best fits your target of choice.
 
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/flowchart_overview.png" alt="DrugDisco Flowchart" width="1200">
 
-The back-end constsits of:
+The **back-end/database component** constsits of:
 
 1. A script that checks ZINC15 every week and downloads all purchasable and drug-like compounds. Specifically, we download the ZINC-IDs and the SMILES and MOL2 representations of the small molecules. At the time of writing this document, there were over 20 million compounds that fit these categories.
 
@@ -30,9 +33,9 @@ The back-end constsits of:
 
 4. Lastly, we store the clusters and choose the centroids of each cluster as the initial candidates for binding to target molecules.
 
-The user interface allows users to upload a target molecule in PDB format, a binding site in MOL2 format providing the x, y and z coordinates for the center of the binding site and their email address so that they can be notified when DrugDisco has idientified 20 candidate compounds.
+The **user interface** allows users to upload a target molecule in PDB format, a binding site in MOL2 format providing the x, y and z coordinates for the center of the binding site and their email address so that they can be notified when DrugDisco has idientified 20 candidate compounds.
 
-The filtering component progressively refines its search by using MedusaDock on the target molecule and candidate compounds:
+The **filtering component** progressively refines its search by using MedusaDock on the target molecule and candidate compounds:
 
 1. In the first round, MedusaDock runs for 10 iterations using the target molecule and every compound that was identified as a cluster centroid. The top 1,000 compounds are then selected for the second round.
 
