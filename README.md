@@ -12,12 +12,13 @@ Developing new pharmaceutical drugs is crazy expensive. A big part of the cost c
 DrugDisco makes trial-and-error drug discovery a thing of the past by using a rational and structure-based approach. It can screen millions of compounds in-silico to find the best fiting ligand for your target.
 
 ## How it works:
-<img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/flowchart_overview.png" alt="DrugDisco Flowchart" width="1200">
 DrugDisco consists of 3 main components:
 
 1. A "back-end" or "database" component that stores relavant information about the ligands and how similar they are to each other.
 2. A user-interface that lets you specify a target molecule 
 3. A "filtering" component that identifies the compound that best fits your target of choice.
+
+<img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/flowchart_overview.png" alt="DrugDisco Flowchart" width="1200">
 
 The back-end constsits of:
 
