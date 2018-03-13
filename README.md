@@ -36,7 +36,7 @@ The **back-end/database component** constsits of:
 
 The **user interface** allows users to upload a target molecule in PDB format, a binding site in MOL2 format providing the x, y and z coordinates for the center of the binding site and their email address so that they can be notified when DrugDisco has idientified 20 candidate compounds.
 
-The **filtering component** progressively refines its search by using MedusaDock on the target molecule and candidate compounds:
+The **filtering component** progressively refines its search by using **MedusaDock** on the target molecule and candidate compounds. MedusdaDock takes a target molecule in PDB format, a binding site in MOL2 format and a ligand in MOL2 format as input. Here are the steps for filtering:
 
 1. In the first round, MedusaDock runs for 10 iterations using the target molecule and every compound that was identified as a cluster centroid. The top 1,000 compounds are then selected for the second round.
 
