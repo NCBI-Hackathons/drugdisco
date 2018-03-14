@@ -52,10 +52,11 @@ Here is an overview of how the three major components come together using comput
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/platform_overview.png" alt="Platform Flowchart" width="1200">
 
 ## How to use DrugDisco, a step-by-step tutorial
-This is where we add screenshots that show exactly, step-by-step, how to use DrugDisco.
+<img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/web4.PNG" alt="DrugDisco UI" width="1200">
 
-* Step 1: Upload PDB file for target molecule
-* Step 2: Upload MOL2 coordinates for the center of the binding site
+* Step 1: Next to **Receptor** click on "Choose File" and select your PDB formated target molecule.
+* Step 2: Next to **Binding Coordinates** click on "Choose File" and select your MOL2 formatted x, y, z binding coordinates.
 * Step 3: Enter your email address
-* Step 4: Press "GO!!!!"
-#BAM!!!!!
+* Step 4: Press "Submit"
+
+# BAM!!!!!
