@@ -1,5 +1,9 @@
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/DrugDiscoLogo.png" alt="DrugDisco Logo" width="200">
 
+# Installation
+DrugDisco is packaged as a Dockerfile (see for https://docs.docker.com/)
+
+
 # DrugDisco
 DrugDisco is a high throughput automated drug discovery pipeline. Specifically, it tests over 20 million small molecules that are commercially available and can be used a drugs to find that one that fits your target best!!!
 
