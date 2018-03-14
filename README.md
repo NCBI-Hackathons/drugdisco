@@ -56,7 +56,7 @@ Here is an overview of how the three major components come together using comput
 
 * Step 1: Next to **Receptor** click on "Choose File" and select your PDB formated target molecule.
 * Step 2: Next to **Binding Coordinates** click on "Choose File" and select your MOL2 formatted x, y, z binding coordinates.
-* Step 3: Enter your email address
-* Step 4: Press "Submit"
+* Step 3: Enter your **Email address**
+* Step 4: Press **Submit**
 
 # BAM!!!!!
