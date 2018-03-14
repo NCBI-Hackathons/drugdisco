@@ -113,7 +113,7 @@ csv_fields.sort(key=lambda x: x[1])
 for cnt, ff in enumerate(csv_fields):
 	csv_line = ff[0] + "," + str(ff[1]) + "," + ff[2] + "," + str(ff[3]) + "\n"
 	csvFile.write(csv_line)
-	if cnt > output_topN-1:
+	if cnt >= output_topN-1:
 		break
 
 
