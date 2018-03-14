@@ -5,14 +5,14 @@ import sys
 import random
 import glob
 
-data_dir=sys.argv[1]
-output_script_dir = 'out_scripts'
-output_data_dir = 'out_data'
-output_topN = 20
+data_dir=sys.argv[1] #data directory contains all mol2 files
+output_script_dir = 'out_scripts' #generated scripts to execute, for different docking modules 
+output_data_dir = 'out_data' #generated pdb files from the docking module
+output_topN = 20 #the number of molecules to retain
 
-parallel_num = int(sys.argv[2])
-docking_times =int(sys.argv[3])
-csvFile_name = sys.argv[4]
+parallel_num = int(sys.argv[2]) #number of parallell scripts to run  
+docking_times =int(sys.argv[3]) #docking times for one compound
+csvFile_name = sys.argv[4] #output csv file name
 
 def save_makedir(directory):
 	if not os.path.exists(directory):
@@ -68,10 +68,9 @@ else:
 	for g in xrange(parallel_num):
 		script_path = os.path.join(output_script_dir, 'sub_grp{}.sh'.format(g))
 		os.system('sh '+ script_path)
-		
-outdir='./out_data'
-#outdir='./output'
 
+# read the output dir		
+outdir='./out_data'
 
 csvFile = open(csvFile_name, "w")
 csvFile.write("Compounds,MIN_E,SUB_ZINC_ID,POSE\n")
@@ -81,6 +80,7 @@ os.chdir(outdir)
 onlydirs = [f for f in os.listdir('.') if os.path.isdir(os.path.join('.', f))]
 csv_fields = [] 
 
+# extract dir names and access them one by one
 for dname in onlydirs:
     #print dname
     os.chdir(dname)
@@ -92,6 +92,7 @@ for dname in onlydirs:
         with open(filename, "r") as f:
             lines = f.readlines()
 	    tmp_pose = -1
+	# keep the POSE number and lowest energy
         for line in lines:
             if line.startswith('REMARK POSE'):
                 tmp_pose = int(line[13:].rstrip())
@@ -102,20 +103,20 @@ for dname in onlydirs:
                     min_eng = float(line[16:].rstrip())
                 #print "P[" + str(min_pose) + "]; Min E: " + str(min_eng)
 	    csv_line = dname + "," + str(min_eng) + "," + filename[:-4] + "," + str(min_pose) + "\n"
-    csv_fields.append((dname, min_eng, filename[:-4], min_pose))      #print csv_line
+    csv_fields.append((dname, min_eng, filename[:-4], min_pose)) 
     
 
     os.chdir("../")
 
 os.chdir("../")
 
+# sort the results by energy value
 csv_fields.sort(key=lambda x: x[1])
 for cnt, ff in enumerate(csv_fields):
 	csv_line = ff[0] + "," + str(ff[1]) + "," + ff[2] + "," + str(ff[3]) + "\n"
 	csvFile.write(csv_line)
 	if cnt >= output_topN-1:
 		break
-
 
 csvFile.close()
 
