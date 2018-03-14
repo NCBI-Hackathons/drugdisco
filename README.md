@@ -22,7 +22,7 @@ DrugDisco consists of 3 main components:
 2. A **user-interface** that lets you specify a target molecule 
 3. A **filtering component** that identifies the compound that best fits your target of choice.
 
-<img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/flowchart_overview.png" alt="DrugDisco Flowchart" width="1200">
+<img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/figure1.png" alt="DrugDisco Flowchart" width="1200">
 
 The **back-end/database component** constsits of:
 
