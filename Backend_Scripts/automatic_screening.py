@@ -119,3 +119,5 @@ for cnt, ff in enumerate(csv_fields):
 
 csvFile.close()
 
+os.system('rm -rf out_scripts')
+os.system('rm -rf out_data')
