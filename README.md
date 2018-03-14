@@ -3,6 +3,16 @@
 # Installation
 DrugDisco is packaged as a Dockerfile (see for https://docs.docker.com/)
 
+IF you would like to install our pipeline without using a docker image, you will need to install:
+
+1. [**Open Babel**](http://openbabel.org/wiki/Main_Page), along with python bindings.
+2. [**Rdkit**](http://www.rdkit.org/docs/Install.html).  I found the anaconda method to be the easiest.
+3. I used pip install *library name* to install the following python libraries:
+    + [**chemfp**].  Use version 1.1p1 (pip install chemfp==1.1p1).  See the instructions [here](http://chemfp.readthedocs.io/en/chemfp-1.3/installing.html#configuration-options).  To install with OpenMP configuration so that multiple processors can be utilized.
+    + numpy
+    + pandas
+    + psutil
+
 
 # DrugDisco
 DrugDisco is a high throughput automated drug discovery pipeline. Specifically, it tests over 20 million small molecules that are commercially available and can be used a drugs to find that one that fits your target best!!!
