@@ -237,10 +237,10 @@ def main(args=None):
 		centroids = report_cluster_results(cluster_results, arena, outfile)
 
 		#########
-		#This is the list of zinc ids in the cluster
+		#This creates individual smiles files for each centroid
 		#########
 		
-		fh = open('HDAA.smi', "r")
+		fh = open('zinc_library.smi', "r")
 		n = 0
 		for line in fh:
 			id  = line.split()[1] 

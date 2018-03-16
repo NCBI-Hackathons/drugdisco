@@ -6,7 +6,7 @@ import argparse
 
 
 p = parser = argparse.ArgumentParser(
-	description="Find all members of the clusters to which a list of centroids belongs")
+	description="Find all the members of the clusters to which a set of centroids map")
 p.add_argument("--zinc_path", "-z", type=str,
 			   help="path to directory containing zinc_library.smi file")
 
@@ -14,17 +14,12 @@ def main(args=None):
 
 	args = parser.parse_args(args)
 	zinc_path = args.zinc_path
-	# zinc_path = args[0]
 
 	df = pd.read_csv("energies.csv")
-	centroids = df.Compounds #you can also use df['column_name']
-
-	# print(centroids)
+	centroids = df.Compounds
 
 	clus_dict = np.load(zinc_path + '/cluster_dictionary.npy').item()
 
-	# print(clus_dict)
-	# print(clus_dict['ZINC000049401119'])
 	clus_mem = []
 	for cmpd in centroids:
 		# print(centroids)
@@ -43,8 +38,6 @@ def main(args=None):
 			centroid_file.close()
 	print("\nNumber of cluster members: " + str(n) + "\n")
 	fh.close()
-
-# main()
 
 if __name__ == "__main__":
 	main()
