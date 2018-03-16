@@ -85,7 +85,7 @@ You will need to install:
 
 ## Clustering of a Zinc Library
 
-Because the size of the libraries that users may want to cluster is so large (~10 million cmpds), we store the zinc library in the simple smiles format.  A curl file for the subset of the Zinc library desired will need to be generated using the downloader here (http://zinc15.docking.org/tranches/home/).  We are unable to do this through the Zinc library API at the moment, but we are working on this. 
+Because the size of the libraries that users may want to cluster is so large (~10 million cmpds), we store the zinc library in the simple smiles format.  A curl file for the subset of the Zinc library desired will need to be generated using the downloader [here] (http://zinc15.docking.org/tranches/home/).  We are unable to do this through the Zinc library API at the moment, but we are working on this. 
 
 Save the curl in a directory where you would like to keep your Zinc library.  cd into this directory and run:
 
