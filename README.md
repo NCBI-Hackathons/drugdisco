@@ -85,7 +85,9 @@ You will need to install:
 
 ## Clustering of a Zinc Library
 
-Because the size of the libraries that users may want to cluster is so large (~10 million cmpds), we store the zinc library in the simple smiles format.  A curl file for the subset of the Zinc library desired will need to be generated using the downloader here (http://zinc15.docking.org/tranches/home/).  We are unable to do this through the Zinc library API at the moment, but we are working on this. Save the curl in a directory where you would like to keep your Zinc library.  cd into this directory and run:
+Because the size of the libraries that users may want to cluster is so large (~10 million cmpds), we store the zinc library in the simple smiles format.  A curl file for the subset of the Zinc library desired will need to be generated using the downloader here (http://zinc15.docking.org/tranches/home/).  We are unable to do this through the Zinc library API at the moment, but we are working on this. 
+
+Save the curl in a directory where you would like to keep your Zinc library.  cd into this directory and run:
 
 ```
 get_zinc_centroids.sh
@@ -93,7 +95,7 @@ get_zinc_centroids.sh
 
 This will download many smiles files, each of which corresponds to a tranche of the Zinc library.  Next, these files are assembled into one giant smiles file, named `zinc_library.smi`.  Finally, fingerprints are generated for the library and tanimoto clustering is performed.  The RDKit library was used for fingerprint generation, so you can use just about any other fingerprint if you like. Also, you can modify the input to the `taylor_butina_clustering.py` to change the similarity threshold.
 
-An example of the output files generated is [here](https://github.com/NCBI-Hackathons/drugdisco/tree/master/example_ZINC_database_cluster). Some of the output files generated are:
+An example of the output files generated is [here](https://github.com/NCBI-Hackathons/drugdisco/tree/master/example_ZINC_database_cluster). Some of the output files are:
 
 * **zin_library.fps** the zinc library fingerprints.
 * **mol2** a directory containing individual mol files for each centroid, to use as input to the automated docking pipeline.
@@ -102,7 +104,9 @@ An example of the output files generated is [here](https://github.com/NCBI-Hacka
 
 ## Automated Docking Pipeline
 
-Once the database has been clustered, the automated docking pipeline can be run.  Create a directory for your run and cd into it, then run:
+Once the database has been clustered, the automated docking pipeline can be run.  
+
+Create a directory for your run and cd into it, then run:
 
 ```
 docking_pipeline.sh path/to/zinc/library
