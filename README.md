@@ -97,10 +97,10 @@ This will download many smiles files, each of which corresponds to a tranche of 
 
 An example of the output files generated is [here](https://github.com/NCBI-Hackathons/drugdisco/tree/master/example_ZINC_database_cluster). Some of the output files are:
 
-* **zin_library.fps** the zinc library fingerprints.
+* **zinc_library.fps** the zinc library fingerprints.
 * **mol2** a directory containing individual mol files for each centroid, to use as input to the automated docking pipeline.
-* **cluster_dictionary.npy** a numpy dictionary object where the keys are the ZINC IDs of centroids of each cluster, and the values are the list ZINC IDs for all of the centroid's cluster members.
-* **cluster_size_dictionary.npy** a numpy dictionary object where the keys are the ZINC IDs of centroids of each cluster, and the values are the number of cluster members.
+* **cluster_dictionary.npy** a numpy dictionary object. A key is the ZINC ID of a centroid, and a values are is the ZINC IDS for the centroid's cluster members.
+* **cluster_size_dictionary.npy** a numpy dictionary object. A key is the ZINC ID of a centroid, is the number of cluster members.
 
 ## Automated Docking Pipeline
 
