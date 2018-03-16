@@ -14,7 +14,6 @@ def main(args=None):
 
 	args = parser.parse_args(args)
 	zinc_path = args.zinc_path
-	# zinc_path = args[0]
 
 	df = pd.read_csv("energies.csv")
 	centroids = df.Compounds
