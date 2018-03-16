@@ -1,7 +1,16 @@
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/DrugDiscoLogo.png" alt="DrugDisco Logo" width="200">
 
 # Installation
-DrugDisco is packaged as a Dockerfile (see for https://docs.docker.com/)
+DrugDisco is packaged as a Dockerfile (see for https://docs.docker.com/). Dockerfile automatically builds basic environment. User still needs to build Babel, Rdkit, and chemfp from source codes, see details below.
+
+``` bash
+# build docker image
+sudo docker build -t drugdisco .
+
+# run docker container
+sudo docker run -it --name dd drugdisco /bin/bash
+
+```
 
 IF you would like to install our pipeline without using a docker image, you will need to install:
 
@@ -12,7 +21,6 @@ IF you would like to install our pipeline without using a docker image, you will
     + numpy
     + pandas
     + psutil
-
 
 # DrugDisco
 DrugDisco is a high throughput automated drug discovery pipeline. Specifically, it tests over 20 million small molecules that are commercially available and can be used a drugs to find that one that fits your target best!!!
