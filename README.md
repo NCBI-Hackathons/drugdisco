@@ -1,27 +1,5 @@
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/DrugDiscoLogo.png" alt="DrugDisco Logo" width="200">
 
-# Installation
-DrugDisco is packaged as a Dockerfile (see for https://docs.docker.com/). Dockerfile automatically builds basic environment. User still needs to build Babel, Rdkit, and chemfp from source codes, see details below.
-
-``` bash
-# build docker image
-sudo docker build -t drugdisco .
-
-# run docker container
-sudo docker run -it --name dd drugdisco /bin/bash
-
-```
-
-IF you would like to install our pipeline without using a docker image, you will need to install:
-
-1. [**Open Babel**](http://openbabel.org/wiki/Main_Page), along with python bindings.
-2. [**Rdkit**](http://www.rdkit.org/docs/Install.html).  I found the anaconda method to be the easiest.
-3. I used pip install *library name* to install the following python libraries:
-    + [**chemfp**](http://chemfp.readthedocs.io/en/chemfp-1.3/installing.html).  Use version 1.1p1 (pip install chemfp==1.1p1).  See the instructions [here](http://chemfp.readthedocs.io/en/chemfp-1.3/installing.html#configuration-options) to install with OpenMP configuration so that multiple processors can be utilized.
-    + numpy
-    + pandas
-    + psutil
-
 # DrugDisco
 DrugDisco is a high throughput automated drug discovery pipeline. Specifically, it tests over 20 million small molecules that are commercially available and can be used a drugs to find that one that fits your target best!!!
 
@@ -46,7 +24,7 @@ DrugDisco consists of 3 main components:
 
 <img src="https://github.com/NCBI-Hackathons/drugdisco/blob/master/figure1.png" alt="DrugDisco Flowchart" width="1200">
 
-The **back-end/database component** constsits of:
+The **back-end/database component** consits of:
 
 1. A script that downloads all purchasable and drug-like compounds from ZINC15. Specifically, DrugDisco downloads the ZINC-IDs and the SMILES and MOL2 representations of the small molecules. At the time of writing this document, there were over 20 million compounds that fit these categories.
 
@@ -80,5 +58,56 @@ Here is an overview of how the three major components come together using comput
 * Step 2: Next to **Binding Coordinates** click on "Choose File" and select your MOL2 formatted x, y, z binding coordinates.
 * Step 3: Enter your **Email address**
 * Step 4: Press **Submit**
+
+# Installation of Back End Scripts (for Developers)
+DrugDisco is packaged as a Dockerfile (see for https://docs.docker.com/). Dockerfile automatically builds basic environment. User still needs to build Babel, Rdkit, and chemfp from source codes, see details below.
+
+``` bash
+# build docker image
+sudo docker build -t drugdisco .
+
+# run docker container
+sudo docker run -it --name dd drugdisco /bin/bash
+
+```
+
+You will need to install:
+
+1. [**Open Babel**](http://openbabel.org/wiki/Main_Page), along with python bindings.
+2. [**Rdkit**](http://www.rdkit.org/docs/Install.html).  I found the anaconda method to be the easiest.
+3. I used pip install *library name* to install the following python libraries:
+    + [**chemfp**](http://chemfp.readthedocs.io/en/chemfp-1.3/installing.html).  Use version 1.1p1 (`pip install chemfp==1.1p1`).  See the instructions [here](http://chemfp.readthedocs.io/en/chemfp-1.3/installing.html#configuration-options) to install with OpenMP configuration so that multiple processors can be utilized.
+    + numpy
+    + pandas
+    + psutil
+
+**Add the Backend_Scripts directory to your path** if you would like to follow the instructions below:
+
+## Clustering of a Zinc Library
+
+Because the size of the libraries that users may want to cluster is so large (~10 million cmpds), we store the zinc library in the simple smiles format.  A curl file for the subset of the Zinc library desired will need to be generated using the downloader here (http://zinc15.docking.org/tranches/home/).  We are unable to do this through the Zinc library API at the moment, but we are working on this. Save the curl in a directory where you would like to keep your Zinc library.  cd into this directory and run:
+
+```
+get_zinc_centroids.sh
+```
+
+This will download many smiles files, each of which corresponds to a tranche of the Zinc library.  Next, these files are assembled into one giant smiles file, named `zinc_library.smi`.  Finally, fingerprints are generated for the library and tanimoto clustering is performed.  The RDKit library was used for fingerprint generation, so you can use just about any other fingerprint if you like. Also, you can modify the input to the `taylor_butina_clustering.py` to change the similarity threshold.
+
+An example of the output files generated is [here](https://github.com/NCBI-Hackathons/drugdisco/tree/master/example_ZINC_database_cluster). Some of the output files generated are:
+
+* **zin_library.fps** the zinc library fingerprints.
+* **mol2** a directory containing individual mol files for each centroid, to use as input to the automated docking pipeline.
+* **cluster_dictionary.npy** a numpy dictionary object where the keys are the ZINC IDs of centroids of each cluster, and the values are the list ZINC IDs for all of the centroid's cluster members.
+* **cluster_size_dictionary.npy** a numpy dictionary object where the keys are the ZINC IDs of centroids of each cluster, and the values are the number of cluster members.
+
+## Automated Docking Pipeline
+
+Once the database has been clustered, the automated docking pipeline can be run.  Create a directory for your run and cd into it, then run:
+
+```
+docking_pipeline.sh path/to/zinc/library
+```
+
+This will perform the automated docking pipeline.  See the customizable parameters in [automatic_screening.py](https://github.com/NCBI-Hackathons/drugdisco/blob/master/Backend_Scripts/automatic_screening.py) for a description of how the automatic screening parameters might be modified. In the end, the file `energies_stage2.csv` will contain the top ranked compounds along with their docking scores.
 
 # BAM!!!!!
